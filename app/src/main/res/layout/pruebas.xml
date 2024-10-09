@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pruebas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Fondo dividido en dos colores usando ConstraintLayout -->
+    <View
+        android:id="@+id/viewPlayer1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#A3DAD1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewPlayer2"
+        app:layout_constraintHorizontal_weight="1"/>
+
+    <View
+        android:id="@+id/viewPlayer2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#009688"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/viewPlayer1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"/>
+
+    <!-- Jugador 1 -->
+    <TextView
+        android:id="@+id/player1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAYER 1"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/viewPlayer1"
+        android:layout_marginTop="140dp"/>
+
+    <!-- Puntuación jugador 1 -->
+    <TextView
+        android:id="@+id/player1Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:background="@color/white"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:padding="14dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/player1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/viewPlayer1"
+        android:layout_marginTop="70dp"/>
+
+    <!-- Jugador 2 -->
+    <TextView
+        android:id="@+id/player2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAYER 2"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/viewPlayer2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="140dp"/>
+
+    <!-- Puntuación jugador 2 -->
+    <TextView
+        android:id="@+id/player2Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:background="@color/white"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:padding="14dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/player2"
+        app:layout_constraintStart_toStartOf="@id/viewPlayer2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"/>
+
+    <!-- Botón "NEW!" -->
+    <Button
+        android:id="@+id/newGameButton"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="NEW!"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#EC407A"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/diceImage" />
+
+    <!-- Imagen del dado -->
+    <ImageView
+        android:id="@+id/diceImage"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/dice_random"
+        app:layout_constraintTop_toBottomOf="@id/newGameButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/contadorTirada" />
+
+    <!-- TextView contador de tirada -->
+    <TextView
+        android:id="@+id/contadorTirada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:background="@color/white"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:padding="14dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/diceImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rollButton" />
+
+    <!-- Botón "Lanzar" -->
+    <Button
+        android:id="@+id/rollButton"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="LANZAR"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#EC407A"
+        app:layout_constraintTop_toBottomOf="@id/contadorTirada"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/turnButton"/>
+
+    <!-- Botón "Turno" -->
+    <Button
+        android:id="@+id/turnButton"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="TURNO"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#EC407A"
+        app:layout_constraintTop_toBottomOf="@id/rollButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
